@@ -1,3 +1,3 @@
 class Testdata:
-    url = ""
+    url = "https://automationexercise.com/"
     timeout = 20
