@@ -24,10 +24,3 @@ class Basedriver:
     def select_dropdown_by_visible_text(self, locator, visible_text):
         element = self.wait_until_element_is_visible(locator)
         Select(element).select_by_visible_text(visible_text)
-        
-    def get_current_url(self):
-        return self.driver.current_url
-    
-    def get_current_webpage_title(self):
-        return self.driver.title
-    
