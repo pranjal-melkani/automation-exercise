@@ -1,6 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from utilities.testdata import Testdata
 
 
 class Basedriver:
@@ -8,7 +9,7 @@ class Basedriver:
         self.driver = driver
         
     def wait_until_element_is_visible(self, locator):
-        wait = WebDriverWait(self.driver, timeout=20)
+        wait = WebDriverWait(self.driver, timeout=Testdata.timeout)
         element = wait.until(EC.visibility_of_element_located(locator))
         return element
     
