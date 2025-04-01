@@ -1,5 +1,6 @@
 from base.basedriver import Basedriver
 from utilities.locators import Homepage_locators
+from pages.signup_login_page import Signup_Login_page
 
 
 class Homepage(Basedriver):
@@ -9,6 +10,7 @@ class Homepage(Basedriver):
         
     def click_signup_login_btn(self):
         self.click_on_element(self.locators.signup_login_btn)
+        return Signup_Login_page(self.driver)
         
     def click_contact_us_btn(self):
         self.click_on_element(self.locators.contact_us_btn)
@@ -28,4 +30,11 @@ class Homepage(Basedriver):
     def click_add_to_cart(self):
         self.click_on_element(self.locators.add_to_cart)
         
-    
+    def homepage_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.signup_login_btn)
+            self.wait_until_element_is_visible(self.locators.cart_btn)
+            self.wait_until_element_is_visible(self.locators.add_to_cart)
+            return self.driver.title == 'Automation Exercise'
+        except Exception:
+            return False
