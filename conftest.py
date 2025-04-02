@@ -1,6 +1,5 @@
 import pytest
 from selenium import webdriver
-from utilities.testdata import Testdata
 
 
 @pytest.fixture(scope='session', autouse=True, params=['chrome'])
@@ -16,6 +15,5 @@ def driver(request):
         raise Exception("Please check the browser type")
     
     driver.maximize_window()
-    driver.get(Testdata.url)
     yield driver
     driver.quit()
