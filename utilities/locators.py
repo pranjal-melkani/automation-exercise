@@ -2,9 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class Homepage_locators:
-    # view_product = (By.LINK_TEXT, "View Product")
-    # add_to_cart = (By.LINK_TEXT, "Add to cart")
-    pass
+    home_slider = (By.ID, "slider")
     
 
 class Signup_Login_page_locators:
@@ -49,3 +47,16 @@ class Signup_Login_page_locators:
     login_password_field = (By.XPATH, "//*[@data-qa='login-password']")
     login_btn = (By.XPATH, "//*[@data-qa='login-button']")
     incorrect_credentials_error_msg = (By.XPATH, "//*[text()='Your email or password is incorrect!']")
+
+
+class Contactus_page_locators:
+    get_in_touch_text = (By.XPATH, "//*[text()='Get In Touch']")
+    name_field = (By.XPATH, "//*[@data-qa='name']")
+    email_field = (By.XPATH, "//*[@data-qa='email']")
+    subject_field = (By.XPATH, "//*[@data-qa='subject']")
+    message_field = (By.ID, "message")
+    file_upload_field = (By.NAME, "upload_file")
+    submit_btn = (By.XPATH, "//*[@data-qa='submit-button']")
+    success_message = (By.XPATH, "//*[@class='contact-form']//*[text()=\
+                       'Success! Your details have been submitted successfully.']")
+    home_btn = (By.XPATH, "//*[@id='form-section']//*[contains(text(), 'Home')]")
