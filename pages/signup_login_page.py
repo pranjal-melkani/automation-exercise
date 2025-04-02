@@ -1,5 +1,4 @@
 from datetime import datetime
-import time
 from base.basedriver import Basedriver
 from utilities.locators import Signup_Login_page_locators
 
@@ -16,7 +15,7 @@ class Signup_Login_page(Basedriver):
             return True
         except Exception:
             return False
-        
+     
     def enter_signup_name(self, name):
         self.send_keys(self.locators.signup_name_field, name)
         
@@ -30,14 +29,14 @@ class Signup_Login_page(Basedriver):
         self.enter_signup_name(name)
         self.enter_signup_email(email_id)
         self.click_signup_btn()
-        
+    
     def enter_account_info_isvisible(self):
         try:
             self.wait_until_element_is_visible(self.locators.enter_account_info_header)
             return True
         except Exception:
             return False
-        
+
     def enter_title(self, title):
         if str(title).lower() == 'mr':
             self.click_on_element(self.locators.title_mr)
@@ -116,7 +115,6 @@ class Signup_Login_page(Basedriver):
         self.enter_city(city)
         self.enter_zip_code(zip_code)
         self.enter_mobile_number(mob_no)
-        time.sleep(10)
         self.click_create_account_btn()
         
     def account_created_isvisible(self):
@@ -128,10 +126,7 @@ class Signup_Login_page(Basedriver):
         
     def click_continue_btn(self):
         self.click_on_element(self.locators.continue_btn)
-        
-    def get_logged_in_as_value(self):
-        return self.wait_until_element_is_visible(self.locators.logged_in_as_field).text
-    
+
     def click_delete_account_btn(self):
         self.click_on_element(self.locators.delete_account_btn)
         
@@ -141,3 +136,42 @@ class Signup_Login_page(Basedriver):
             return True
         except Exception:
             return False
+        
+    def email_exists_error_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.email_exists_error_msg)
+            return True
+        except Exception:
+            return False  
+
+    def login_field_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.login_form)
+            self.wait_until_element_is_visible(self.locators.login_header)
+            return True
+        except Exception:
+            return False
+    
+    def enter_login_email(self, email_id):
+        self.send_keys(self.locators.login_email_field, email_id)
+        
+    def enter_login_password(self, password):
+        self.send_keys(self.locators.login_password_field, password)
+        
+    def click_login_btn(self):
+        self.click_on_element(self.locators.login_btn)
+        
+    def login_user(self, email_id, password):
+        self.enter_login_email(email_id)
+        self.enter_login_password(password)
+        self.click_login_btn()
+        
+    def incorrect_credentials_error_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.incorrect_credentials_error_msg)
+            return True
+        except Exception:
+            return False
+    
+        
+    
