@@ -30,6 +30,7 @@ class Basedriver:
         
     def send_keys(self, locator, input_text):
         element = self.wait_until_element_is_visible(locator)
+        element.clear()
         element.send_keys(input_text)
         
     def select_dropdown_by_visible_text(self, locator, visible_text):
@@ -56,4 +57,8 @@ class Basedriver:
     
     def logout(self):
         self.click_on_element(self.navbar_logout)
+        
+    def go_to_contact_us_page(self):
+        self.click_on_element(self.navbar_contact_us)
+        
         
