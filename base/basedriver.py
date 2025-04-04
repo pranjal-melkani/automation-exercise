@@ -61,4 +61,7 @@ class Basedriver:
     def go_to_contact_us_page(self):
         self.click_on_element(self.navbar_contact_us)
         
+    def go_to_testcases_page(self):
+        self.click_on_element(self.navbar_testcases)
+        
         
