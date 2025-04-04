@@ -2,6 +2,7 @@ from base.basedriver import Basedriver
 from utilities.locators import Homepage_locators
 from pages.signup_login_page import Signup_Login_page
 from pages.contact_us_page import ContactUs_page
+from pages.testcases_page import Testcases_Page
 
 
 class Homepage(Basedriver):
@@ -24,4 +25,8 @@ class Homepage(Basedriver):
         self.go_to_contact_us_page()
         return ContactUs_page(self.driver)   
 
+    def click_testcases_btn(self):
+        self.go_to_testcases_page()
+        return Testcases_Page(self.driver)
+    
     
