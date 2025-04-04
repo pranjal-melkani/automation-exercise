@@ -60,3 +60,7 @@ class Contactus_page_locators:
     success_message = (By.XPATH, "//*[@class='contact-form']//*[text()=\
                        'Success! Your details have been submitted successfully.']")
     home_btn = (By.XPATH, "//*[@id='form-section']//*[contains(text(), 'Home')]")
+    
+
+class Testcases_page_locators:
+    testcases_text = (By.XPATH, "//*[text()='Test Cases']")
