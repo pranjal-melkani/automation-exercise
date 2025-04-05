@@ -37,15 +37,15 @@ class Basedriver:
         element = self.wait_until_element_is_visible(locator)
         Select(element).select_by_visible_text(visible_text)
         
+    def get_all_items(self, locator):
+        return self.driver.find_elements(locator[0], locator[1])
+        
     def open_url(self, url):
         self.driver.get(url)
         
     def go_to_homepage(self):
         self.click_on_element(self.navbar_home)
-    
-    def open_products_page(self):
-        self.click_on_element(self.navbar_products)
-        
+
     def open_cart(self):
         self.click_on_element(self.navbar_cart)
         
@@ -64,4 +64,5 @@ class Basedriver:
     def go_to_testcases_page(self):
         self.click_on_element(self.navbar_testcases)
         
-        
+    def go_to_products_page(self):
+        self.click_on_element(self.navbar_products)
