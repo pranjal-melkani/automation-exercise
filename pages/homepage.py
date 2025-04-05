@@ -3,6 +3,7 @@ from utilities.locators import Homepage_locators
 from pages.signup_login_page import Signup_Login_page
 from pages.contact_us_page import ContactUs_page
 from pages.testcases_page import Testcases_Page
+from pages.allproducts_page import AllProductsPage
 
 
 class Homepage(Basedriver):
@@ -29,4 +30,7 @@ class Homepage(Basedriver):
         self.go_to_testcases_page()
         return Testcases_Page(self.driver)
     
+    def click_products_btn(self):
+        self.go_to_products_page()
+        return AllProductsPage(self.driver)
     
