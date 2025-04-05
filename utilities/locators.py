@@ -3,11 +3,7 @@ from selenium.webdriver.common.by import By
 
 class Homepage_locators:
     home_slider = (By.ID, "slider")
-    subscription_text = (By.XPATH, "//*[text()='Subscription']")
-    subscribe_email_field = (By.ID, "susbscribe_email")
-    subscribe_arrow = (By.ID, "subscribe")
-    subscription_success_msg = (By.XPATH, "//*[text()='You have been successfully subscribed!']")
-    
+        
 
 class Signup_Login_page_locators:
     # Signup
@@ -87,7 +83,8 @@ class Product_Details_page_locators:
     product_brand = (By.XPATH, "//*[@class='product-information']//p[4]")
     
     
-    
+class Cart_page_locators:
+    pass
     
     
     
