@@ -70,7 +70,9 @@ class AllProducts_page_locators:
     all_products_text = (By.XPATH, "//*[text()='All Products']") 
     single_product = (By.CLASS_NAME, "single-products")
     view_product_link = (By.XPATH, "//*[text()='View Product']")
-    
+    search_product_field = (By.CSS_SELECTOR, "input#search_product")
+    search_btn = (By.CSS_SELECTOR, "button#submit_search")
+    searched_products_text = (By.XPATH, "//*[text()='Searched Products']")
 
 class Product_Details_page_locators:
     product_name = (By.XPATH, "//*[@class='product-information']//h2")
