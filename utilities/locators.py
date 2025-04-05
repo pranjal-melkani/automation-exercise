@@ -64,3 +64,23 @@ class Contactus_page_locators:
 
 class Testcases_page_locators:
     testcases_text = (By.XPATH, "//*[text()='Test Cases']")
+    
+
+class AllProducts_page_locators:
+    all_products_text = (By.XPATH, "//*[text()='All Products']") 
+    single_product = (By.CLASS_NAME, "single-products")
+    view_product_link = (By.XPATH, "//*[text()='View Product']")
+    
+
+class Product_Details_page_locators:
+    product_name = (By.XPATH, "//*[@class='product-information']//h2")
+    product_category = (By.XPATH, "//*[@class='product-information']//p[1]")
+    product_availability = (By.XPATH, "//*[@class='product-information']//p[2]")
+    product_condition = (By.XPATH, "//*[@class='product-information']//p[3]")
+    product_brand = (By.XPATH, "//*[@class='product-information']//p[4]")
+    
+    
+    
+    
+    
+    
