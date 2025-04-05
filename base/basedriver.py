@@ -17,6 +17,11 @@ class Basedriver:
     navbar_loggedinas_field = (By.CSS_SELECTOR, ".navbar-nav li:last-child")
     navbar_logout = (By.XPATH, "//a[contains(text(), 'Logout')]")
     
+    footer_subscription_text = (By.XPATH, "//*[text()='Subscription']")
+    footer_subscribe_email_field = (By.ID, "susbscribe_email")
+    footer_subscribe_arrow = (By.ID, "subscribe")
+    footer_subscription_success_msg = (By.XPATH, "//*[text()='You have been successfully subscribed!']")
+    
     def __init__(self, driver):
         self.driver = driver
         
@@ -51,7 +56,8 @@ class Basedriver:
         element = self.wait_until_element_is_visible(locator)
         actions = ActionChains(self.driver)
         actions.scroll_to_element(element).perform()
-        
+    
+    # Navbar    
     def go_to_homepage(self):
         self.click_on_element(self.navbar_home)
 
@@ -75,3 +81,24 @@ class Basedriver:
         
     def go_to_products_page(self):
         self.click_on_element(self.navbar_products)
+    
+    # Footer    
+    def subscription_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.footer_subscription_text)
+            return True
+        except Exception:
+            return False
+        
+    def enter_subscription_email(self, emailID):
+        self.send_keys(self.footer_subscribe_email_field, emailID)
+        
+    def click_subscribe_arrow(self):
+        self.click_on_element(self.footer_subscribe_arrow)
+        
+    def subscription_success_msg_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.footer_subscription_success_msg)
+            return True
+        except Exception:
+            return False
