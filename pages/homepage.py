@@ -4,6 +4,7 @@ from pages.signup_login_page import Signup_Login_page
 from pages.contact_us_page import ContactUs_page
 from pages.testcases_page import Testcases_Page
 from pages.allproducts_page import AllProductsPage
+from pages.cart_page import Cart_page
 
 
 class Homepage(Basedriver):
@@ -34,25 +35,8 @@ class Homepage(Basedriver):
         self.go_to_products_page()
         return AllProductsPage(self.driver)
     
-    def subscription_isvisible(self):
-        try:
-            self.wait_until_element_is_visible(self.locators.subscription_text)
-            return True
-        except Exception:
-            return False
-    
-    def enter_subscription_email(self, emailID):
-        self.send_keys(self.locators.subscribe_email_field, emailID)
-        
-    def click_subscribe_arrow(self):
-        self.click_on_element(self.locators.subscribe_arrow)
-    
-    def subscription_success_msg_isvisible(self):
-        try:
-            self.wait_until_element_is_visible(self.locators.subscription_success_msg)
-            return True
-        except Exception:
-            return False
-    
+    def click_cart_btn(self):
+        self.open_cart()
+        return Cart_page(self.driver)
     
     
