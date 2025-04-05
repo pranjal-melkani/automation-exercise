@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from utilities.testdata import Testdata
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class Basedriver:
@@ -42,6 +43,14 @@ class Basedriver:
         
     def open_url(self, url):
         self.driver.get(url)
+        
+    def scroll_to_the_bottom(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
+    def scroll_to_specific_element(self, locator):
+        element = self.wait_until_element_is_visible(locator)
+        actions = ActionChains(self.driver)
+        actions.scroll_to_element(element).perform()
         
     def go_to_homepage(self):
         self.click_on_element(self.navbar_home)
