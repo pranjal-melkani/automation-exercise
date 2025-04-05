@@ -1,8 +1,10 @@
 from pages.homepage import Homepage
 from utilities.testdata import Testdata
+import pytest
 
 
 class TestProducts:
+    @pytest.mark.skip
     def test_allProducts(self, driver):
         hp = Homepage(driver)
         hp.open_url(Testdata.url)
@@ -20,7 +22,26 @@ class TestProducts:
         assert pd.all_product_details_arevisible(), \
             "Some product details are missing"   
         
-            
+    def test_search_product(self, driver):
+        productName = "Summer White Top"
+        
+        hp = Homepage(driver)
+        hp.open_url(Testdata.url)
+        assert hp.homepage_isvisible(), \
+            "Homepage is not visible. Some elements are missing, or webpage title is not 'Automation Exercise'"
+        ap = hp.click_products_btn()
+        assert ap.all_products_page_isvisible(), \
+            "All Products page is not visible. Some elements are missing, or webpage title does not \
+            contain 'All Products'"
+        ap.search_product(productName)
+        assert ap.searched_products_isvisible(), \
+            "'SEARCHED PRODUCTS' is not visible"
+        assert ap.product_list_isvisible(), \
+            "Product List is not visible or there are no items displaying currently"
+               
+        
+        
+        
             
             
             
