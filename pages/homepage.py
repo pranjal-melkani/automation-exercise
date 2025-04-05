@@ -34,3 +34,25 @@ class Homepage(Basedriver):
         self.go_to_products_page()
         return AllProductsPage(self.driver)
     
+    def subscription_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.subscription_text)
+            return True
+        except Exception:
+            return False
+    
+    def enter_subscription_email(self, emailID):
+        self.send_keys(self.locators.subscribe_email_field, emailID)
+        
+    def click_subscribe_arrow(self):
+        self.click_on_element(self.locators.subscribe_arrow)
+    
+    def subscription_success_msg_isvisible(self):
+        try:
+            self.wait_until_element_is_visible(self.locators.subscription_success_msg)
+            return True
+        except Exception:
+            return False
+    
+    
+    
