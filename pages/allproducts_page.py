@@ -26,9 +26,22 @@ class AllProductsPage(Basedriver):
         self.click_on_element(self.locators.view_product_link)
         return ProductDetails_page(self.driver)
     
+    def enter_productname_in_search_field(self, productName):
+        self.send_keys(self.locators.search_product_field, productName)
     
+    def click_search_btn(self):
+        self.click_on_element(self.locators.search_btn)
+        
+    def search_product(self, productName):
+        self.enter_productname_in_search_field(productName)
+        self.click_search_btn()
     
-    
+    def searched_products_isvisible(self):
+        try:
+           self.wait_until_element_is_visible(self.locators.searched_products_text)
+           return True 
+        except Exception:
+            return False
     
     
     
