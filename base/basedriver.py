@@ -56,6 +56,14 @@ class Basedriver:
         element = self.wait_until_element_is_visible(locator)
         actions = ActionChains(self.driver)
         actions.scroll_to_element(element).perform()
+        
+    def hover_mouse_over_element(self, element):
+        actions = ActionChains(self.driver)
+        actions.scroll_to_element(element).move_to_element(element).perform()
+        
+    def hover_mouse_and_click_element(self, element):
+        action = ActionChains(self.driver)
+        action.move_to_element(element).click().perform()
     
     # Navbar    
     def go_to_homepage(self):
