@@ -69,11 +69,16 @@ class Testcases_page_locators:
 class AllProducts_page_locators:
     all_products_text = (By.XPATH, "//*[text()='All Products']") 
     single_product = (By.CLASS_NAME, "single-products")
+    product_description = (By.XPATH, "//*[@class='product-overlay']//p")
+    product_price = (By.XPATH, "//*[@class='product-overlay']//h2")
     view_product_link = (By.XPATH, "//*[text()='View Product']")
     search_product_field = (By.CSS_SELECTOR, "input#search_product")
     search_btn = (By.CSS_SELECTOR, "button#submit_search")
     searched_products_text = (By.XPATH, "//*[text()='Searched Products']")
-
+    add_to_cart_overlay_btn = (By.XPATH, "//*[@class='product-overlay']//*[text()='Add to cart']")
+    continue_shopping_btn = (By.XPATH, "//*[text()='Continue Shopping']")
+    view_cart_btn = (By.XPATH, "//*[text()='View Cart']")
+    
 
 class Product_Details_page_locators:
     product_name = (By.XPATH, "//*[@class='product-information']//h2")
@@ -84,7 +89,13 @@ class Product_Details_page_locators:
     
     
 class Cart_page_locators:
-    pass
+    cart_items_row = (By.XPATH, "//*[@id='cart_info_table']//tbody//tr")
+    cart_item_description = (By.XPATH, "//*[@id='cart_info_table']//tbody//td[@class='cart_description']//a")
+    cart_item_price = (By.XPATH, "//*[@id='cart_info_table']//tbody//td[@class='cart_price']//p")
+    cart_item_quantity = (By.XPATH, "//*[@id='cart_info_table']//tbody//td[@class='cart_quantity']//button")
+    cart_item_total = (By.XPATH, "//*[@id='cart_info_table']//tbody//td[@class='cart_total']//p")
+    
+    
     
     
     
