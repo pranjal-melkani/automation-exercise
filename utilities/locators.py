@@ -86,6 +86,9 @@ class Product_Details_page_locators:
     product_availability = (By.XPATH, "//*[@class='product-information']//p[2]")
     product_condition = (By.XPATH, "//*[@class='product-information']//p[3]")
     product_brand = (By.XPATH, "//*[@class='product-information']//p[4]")
+    quantity_field = (By.ID, "quantity")
+    add_to_cart_btn = (By.XPATH, "//button[contains(@class, 'cart')]")
+    view_cart_btn = (By.XPATH, "//*[text()='View Cart']")
     
     
 class Cart_page_locators:
