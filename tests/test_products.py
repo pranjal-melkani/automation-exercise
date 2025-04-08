@@ -77,9 +77,19 @@ class TestProducts:
             assert actual_product_total_price == cart_product_total_price, \
                 "Total Price is not matched"
 
-        
-        
-        
+    @pytest.mark.skip
+    def test_verify_product_quantity(self, driver):
+        hp = Homepage(driver)
+        hp.open_url(Testdata.url)
+        assert hp.homepage_isvisible(), \
+            "Homepage is not visible. Some elements are missing, or webpage title is not 'Automation Exercise'"
+        ap = hp.click_products_btn()
+        pd = ap.click_on_first_view_product()
+        pd.enter_quantity(4)
+        pd.click_add_to_cart()
+        cp = pd.click_view_cart_btn()
+        assert cp.get_cart_item_quantity(0) == 4, \
+            "Quantity is not matched"
         
             
             
