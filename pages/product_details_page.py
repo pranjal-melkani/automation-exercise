@@ -1,5 +1,6 @@
 from base.basedriver import Basedriver
 from utilities.locators import Product_Details_page_locators
+from pages.cart_page import Cart_page
 
 
 class ProductDetails_page(Basedriver):
@@ -47,6 +48,19 @@ class ProductDetails_page(Basedriver):
             return True
         except Exception:
             return False
+    
+    def enter_quantity(self, quantity):
+        self.send_keys(self.locators.quantity_field, str(quantity))
+    
+    def click_add_to_cart(self):
+        self.click_on_element(self.locators.add_to_cart_btn)
+    
+    def click_view_cart_btn(self):
+        self.click_on_element(self.locators.view_cart_btn)
+        return Cart_page(self.driver)
+        
+    
+    
     
     
     
